@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>补光灯</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1><i class="fas fa-lightbulb"></i> 智能补光助手</h1>
+      <p class="subtitle"><i class="fas fa-info-circle"></i> 调节补光颜色和亮度，让您的视频更专业</p>
+    </header>
+
+    <div class="main-content">
+      <div class="preview-section">
+        <div class="light-board">
+          <div class="camera-container">
+            <div class="camera-hint">
+              <i class="fas fa-camera"></i>
+              <span>摄像头预览</span>
+            </div>
+            <video id="camera" width="320" height="240" autoplay playsinline></video>
+            <div class="camera-controls">
+              <button id="switch-camera" title="切换摄像头">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+              <button id="take-photo" title="拍照">
+                <i class="fas fa-camera"></i>
+              </button>
+            </div>
+          </div>
+          <div id="color-board"></div>
+        </div>
+        
+        <!-- 拍照预览区域 -->
+        <div class="photo-gallery">
+          <h3><i class="fas fa-images"></i> 拍摄预览</h3>
+          <div class="gallery-container">
+            <canvas id="photo-preview" width="320" height="240"></canvas>
+            <div class="photo-controls">
+              <button id="download-photo" title="下载照片" disabled>
+                <i class="fas fa-download"></i> 保存
+              </button>
+              <button id="retake-photo" title="重新拍照" disabled>
+                <i class="fas fa-redo"></i> 重拍
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="control-section">
+          <h3><i class="fas fa-palette"></i> 颜色调节</h3>
+          <div class="color-picker-container">
+            <div id="color-picker"></div>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h3><i class="fas fa-swatchbook"></i> 预设场景</h3>
+          <div class="preset-colors">
+            <button class="color-preset warm" data-color="#FFE4E1" title="暖色调">
+              <i class="fas fa-sun"></i>
+              <span>暖色调</span>
+            </button>
+            <button class="color-preset cool" data-color="#E6E6FA" title="冷色调">
+              <i class="fas fa-snowflake"></i>
+              <span>冷色调</span>
+            </button>
+            <button class="color-preset natural" data-color="#F0FFF0" title="自然光">
+              <i class="fas fa-leaf"></i>
+              <span>自然光</span>
+            </button>
+            <button class="color-preset sunset" data-color="#FFA07A" title="日落">
+              <i class="fas fa-cloud-sun"></i>
+              <span>日落</span>
+            </button>
+            <button class="color-preset studio" data-color="#F8F8FF" title="摄影棚">
+              <i class="fas fa-camera-retro"></i>
+              <span>摄影棚</span>
+            </button>
+            <button class="color-preset candlelight" data-color="#FFE4B5" title="烛光">
+              <i class="fas fa-fire"></i>
+              <span>烛光</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="control-section">
+          <h3><i class="fas fa-sliders-h"></i> 效果调节</h3>
+          <div class="effect-controls">
+            <div class="control-group">
+              <label>
+                <i class="fas fa-adjust"></i>
+                饱和度
+              </label>
+              <input type="range" id="saturation" min="0" max="200" value="100">
+              <span class="value">100%</span>
+            </div>
+            
+            <div class="control-group">
+              <label>
+                <i class="fas fa-sun"></i>
+                亮度
+              </label>
+              <input type="range" id="brightness" min="0" max="200" value="100">
+              <span class="value">100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

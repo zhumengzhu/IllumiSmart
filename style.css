@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #2d3436;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.app-header h1 {
+  color: #2d3436;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.app-header .subtitle {
+  color: #636e72;
+  font-size: 1.1em;
+  margin: 0;
+}
+
+.app-header i {
+  margin-right: 10px;
+  color: #fdcb6e;
+}
+
+.main-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.preview-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.light-board {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.camera-container {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 240px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #000;
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.camera-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 3;
+}
+
+.camera-controls button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-controls button i {
+  font-size: 1.2em;
+  color: #2d3436;
+}
+
+.camera-controls button:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+#take-photo {
+  width: 60px;
+  height: 60px;
+}
+
+#take-photo i {
+  font-size: 1.5em;
+}
+
+.camera-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.camera-hint i {
+  font-size: 2em;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.camera-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#color-board {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.photo-gallery {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.photo-gallery h3 {
+  margin: 0 0 20px 0;
+  color: #2d3436;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.photo-gallery h3 i {
+  color: #00b894;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#photo-preview {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #f5f7fa;
+}
+
+.photo-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.photo-controls button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  background: #00b894;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.photo-controls button:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.photo-controls button:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.photo-controls button i {
+  font-size: 1.1em;
+}
+
+.controls {
+  flex: 1;
+  min-width: 300px;
+}
+
+.control-section {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.control-section h3 {
+  margin: 0 0 20px 0;
+  color: #2d3436;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-section h3 i {
+  color: #00b894;
+}
+
+.color-picker-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.preset-colors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.color-preset {
+  padding: 15px 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.color-preset i {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.color-preset span {
+  font-size: 0.9em;
+}
+
+.color-preset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.effect-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.control-group label {
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2d3436;
+}
+
+.control-group label i {
+  color: #00b894;
+}
+
+.control-group input[type="range"] {
+  flex: 1;
+  height: 8px;
+  -webkit-appearance: none;
+  background: #dfe6e9;
+  border-radius: 4px;
+  outline: none;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.control-group input[type="range"]:hover {
+  opacity: 1;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00b894;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.control-group .value {
+  min-width: 50px;
+  text-align: right;
+  color: #636e72;
+}
+
+/* 预设颜色按钮的特定样式 */
+.color-preset.warm i { color: #ff7675; }
+.color-preset.cool i { color: #74b9ff; }
+.color-preset.natural i { color: #00b894; }
+.color-preset.sunset i { color: #fd79a8; }
+.color-preset.studio i { color: #6c5ce7; }
+.color-preset.candlelight i { color: #fdcb6e; }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .preview-section,
+  .controls {
+    width: 100%;
+  }
+  
+  .light-board {
+    height: 400px;
+  }
+  
+  .camera-container {
+    width: 280px;
+    height: 210px;
+  }
+  
+  #photo-preview {
+    width: 280px;
+    height: 210px;
+  }
+}
